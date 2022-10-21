@@ -9,16 +9,25 @@ class ListingController extends Controller
 {
     // show all listings
     public function index(){
+
+        //dd(request()->tag);
+
+
+
+
+
+
         return view('listings.index', [
             'headings' => 'Latest Listings',
-            'listings' => Listing::all(),
+            'listings' => Listing::latest()->filter(request(['tag']))->get(), // latest get will sort the latest first
+
         ]);
 
     }
 
     // show single listing
     public function show(Listing $listing){
-        return view('listing.show', [
+        return view('listings.show', [
             'listing' => $listing ,
         ]);
     }

@@ -18,7 +18,10 @@ use App\Http\Controllers\ListingController;
 Route::get('/', [ListingController::class, 'index']);
 
 // single listing
-Route::get('/listing/{listing}', [ListingController::class, 'show']);
+Route::get('/listings/{listing}', [ListingController::class, 'show']);
+
+Route::get('/listings/create', [ListingController::class, 'create']);
+
 
 // Common Resource Routes
 /*
